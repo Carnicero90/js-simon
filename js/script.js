@@ -16,9 +16,10 @@ setTimeout(function() {
         guess = parseInt(prompt(`inserire n.ro ${i+1}`)) === randNums[i];
         counter += guess;
         rightCalls.push(guess);
-        output += `${guess ? '' : 'non '}hai indovinato l'elemento al ${i+1}° posto\n`
+        output += `${guess ? '' : 'non '}hai indovinato l'elemento al ${i+1}° posto\n\n`
     }
     alert(output);
+    document.getElementById('deck').classList.remove('pause');
     document.getElementById('punteggio').innerHTML += counter;
 }, 4900)
 
