@@ -4,9 +4,11 @@ const QUESTION = document.getElementById('question');
 const SCORE = document.getElementById('punteggio');
 const INPUT_WRAPPER = document.getElementById('prompt-wrapper');
 const USER_INPUT = document.getElementById('prompt-number');
+const SEND = document.getElementById('send');
 
 // MISC
 const SEED = 5; // number of cards/random integers
+const DELAY = 5000; // delay before hiding card value in ms
 
 /*  FOR (N == SEED) TIMES: 
  * GENERATE item = RANDOM INTEGER, 
@@ -19,33 +21,34 @@ for (var i = 0; i < SEED; i++) {
     DECK.innerHTML += `<li>${item}</li>`
     randNums.push(item);
 }
-/* HIDE DECK>li INNERHTML AFTER A 5s (MORE OR LESS) DELAY,
+/* HIDE DECK>li INNERHTML AFTER A 5s DELAY,
     DISPLAY INPUT_WRAPPER
 */
 setTimeout(function() {
     DECK.classList.add('pause');
     INPUT_WRAPPER.classList.remove('nada');
-}, 4900)
+}, DELAY)
 
 var counter = 0;
-var rightCalls = [];
+var rightCalls = 0;
+// var rightCalls = [];
 var output = '';
 
-QUESTION.innerHTML = `inserire n.ro ${counter+1}`
-document.getElementById('send').addEventListener('click', function() {
+SEND.addEventListener('click', function() {
         var answer = parseInt(USER_INPUT.value) === randNums[counter];
         counter++;
-        rightCalls.push(answer);
-        if (counter == 5) {
-            alert(rightCalls);
+        // rightCalls.push(answer);
+        rightCalls += answer;
+        if (counter == SEED) {
+            // alert(rightCalls);
             INPUT_WRAPPER.classList.add('nada');
             DECK.classList.remove('pause');
-            // robe orripilanti qua, stasera miglioro
-            SCORE.innerHTML += rightCalls.reduce(function(a, b) {
-                return a + b
-            }, 0);
+            // SCORE.innerHTML += rightCalls.reduce(function(a, b) {
+            //     return a + b
+            // }, 0);
+            SCORE.innerHTML += `${rightCalls}/${SEED}`
         }
-        QUESTION.innerHTML = `inserire n.ro ${counter+1}`
+        QUESTION.innerHTML = `inserire il valore della carta al ${counter+1}° posto`;
     }
 
 )
