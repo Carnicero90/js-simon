@@ -1,6 +1,150 @@
+/* COMMON
+   ======================= */
 .nada {
     display: none;
 }
+
+/* ======================= */
+
+/* MACRO LAYOUT
+   ======================= */
+header {
+    position: relative;
+    padding-top: 60px;
+}
+
+main {
+    background: url('https://img3.goodfon.com/wallpaper/nbig/d/3b/wood-colour-pattern-dark-dark.jpg');
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+p {
+    padding: 40px;
+    color: white;
+}
+
+/* ======================= */
+
+/* MICRO LAYOUT
+   ======================= */
+
+/* ======================= */
+/* header
+   ++++++++++ */
+h1 {
+    font-family: 'Tangerine', cursive;
+    font-weight: bolder;
+    font-size: 3.5rem;
+    width: 25%;
+    margin: auto;
+    box-shadow: 0 0 0 5px hsl(354, 73%, 43%),
+        0 0 0 10px white,
+        0 0 0 15px black;
+}
+
+
+h4 {
+    padding-top: 25px;
+}
+
+.clock {
+    position: absolute;
+    text-align: center;
+    animation: spin 5s;
+    animation-timing-function: linear;
+    top: 40px;
+    left: 35px;
+    width: 100px;
+    height: 100px;
+    /* background: black; */
+    box-shadow: 0 0 0 5px hsla(19, 90%, 24%, 0.699),
+        0 0 0 10px rgb(245, 239, 160),
+        0 0 0 15px rgb(148, 48, 1);
+}
+
+.clock::before {
+    content: "";
+    width: 3px;
+    height: 0px;
+    border-top: 50px solid black;
+    background: black;
+    margin: auto;
+    display: block;
+}
+
+/* .clock animation*/
+@keyframes spin {
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* ++++++++++ */
+
+/* main
+   ++++++++++ */
+#deck {
+    margin-top: 30px;
+    padding-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    background: url('https://image.freepik.com/premium-vector/poker-table-background-green-color_47243-1068.jpg');
+}
+
+#deck.pause li {
+    animation-play-state: paused;
+}
+
+#deck li {
+    background: white;
+    width: 100px;
+    padding-top: 40%;
+    height: 150px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border: 1px solid black;
+    animation-name: cover;
+    animation-duration: 4s;
+    animation-delay: 3s;
+    font-weight: bolder;
+    font-size: 2rem;
+    border-radius: 5px;
+}
+
+/* #deck li animation */
+@keyframes cover {
+    10% {
+        background-image: url('https://images.cdn2.stockunlimited.net/preview1300/playing-cards-background_1277668.jpg');
+        background-size: cover;
+    }
+
+    50% {
+        transform: scaleX(-1);
+        color: transparent;
+        background-size: cover;
+        background-image: url('https://images.cdn2.stockunlimited.net/preview1300/playing-cards-background_1277668.jpg');
+    }
+
+}
+
+#punteggio {
+    padding: 25px;
+
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* ++++++++++ */
+
+
+/* div#prompt-wrapper
+   ++++++++++ */
 
 #prompt-wrapper {
     position: absolute;
@@ -29,97 +173,4 @@
     background: slategray;
 }
 
-h1 {
-    font-family: 'Tangerine', cursive;
-    font-weight: bolder;
-    font-size: 3.5rem;
-    width: 25%;
-    margin: auto;
-    margin-top: 60px;
-    box-shadow: 0 0 0 5px hsl(354, 73%, 43%),
-        0 0 0 10px white,
-        0 0 0 15px black;
-}
-
-h4 {
-    margin-top: 25px;
-}
-
-main {
-    background: url('https://img3.goodfon.com/wallpaper/nbig/d/3b/wood-colour-pattern-dark-dark.jpg');
-    padding-top: 40px;
-    padding-bottom: 40px;
-}
-
-#deck {
-    margin-top: 30px;
-    padding-top: 20px;
-    margin-left: 20px;
-    margin-right: 20px;
-    background: url('https://image.freepik.com/premium-vector/poker-table-background-green-color_47243-1068.jpg');
-}
-
-li {
-    background: white;
-    width: 100px;
-    padding-top: 40%;
-    height: 150px;
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-bottom: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    border: 1px solid black;
-    animation-name: cover;
-    animation-duration: 4s;
-    animation-delay: 3s;
-    font-weight: bolder;
-    font-size: 2rem;
-    border-radius: 5px;
-}
-
-
-#deck.pause li {
-    animation-play-state: paused;
-}
-
-p {
-    padding: 40px;
-    color: white;
-
-}
-
-#punteggio {
-    padding: 25px;
-
-    background-color: rgba(0, 0, 0, 0.5);
-}
-
-@keyframes cover {
-    12% {
-        background-image: url('https://images.cdn2.stockunlimited.net/preview1300/playing-cards-background_1277668.jpg');
-        background-size: cover;
-
-
-    }
-
-    25% {
-        color: transparent;
-        background-image: url('https://images.cdn2.stockunlimited.net/preview1300/playing-cards-background_1277668.jpg');
-        background-size: cover;
-
-
-    }
-
-
-    50% {
-        transform: scaleX(-1);
-        color: transparent;
-        background-size: cover;
-        background-image: url('https://images.cdn2.stockunlimited.net/preview1300/playing-cards-background_1277668.jpg');
-
-    }
-
-}
+/* ++++++++++ */
