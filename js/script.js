@@ -2,6 +2,9 @@ var randNums = Array.from({
     length: 5
 }, i => getRandomInt(1, 11));
 
+
+const boh = document.getElementById('boh');
+const userPrompt = document.getElementById('question');
 for (var i = 0; i < randNums.length; i++) {
     // randNums.push(getRandomInt(1, 11));
     document.getElementsByTagName('li')[i].innerHTML = randNums[i];
@@ -9,19 +12,28 @@ for (var i = 0; i < randNums.length; i++) {
 
 setTimeout(function() {
     document.getElementById('deck').classList.add('pause');
-    var rightCalls = [];
-    var output = '';
-    var counter = 0;
-    for (var i = 0; i < randNums.length; i++) {
-        guess = parseInt(prompt(`inserire n.ro ${i+1}`)) === randNums[i];
-        counter += guess;
-        rightCalls.push(guess);
-        output += `${guess ? '' : 'non '}hai indovinato l'elemento al ${i+1}° posto\n\n`
-    }
-    alert(output);
-    document.getElementById('deck').classList.remove('pause');
-    document.getElementById('punteggio').innerHTML += counter;
+    boh.classList.remove('nada');
 }, 4900)
+var counter = 0;
+var rightCalls = [];
+var output = '';
+
+userPrompt.innerHTML = `inserire n.ro ${counter+1}`
+document.getElementById('send').addEventListener('click', function() {
+        counter++;
+        var answer = parseInt(document.getElementById('prompt-number').value) === randNums[counter];
+        rightCalls.push(answer);
+        if (counter == 5) {
+            alert(rightCalls);
+            boh.classList.add('nada');
+            document.getElementById('deck').classList.remove('pause');
+        }
+        userPrompt.innerHTML = `inserire n.ro ${counter+1}`
+
+
+    }
+
+)
 
 function getRandomInt(min, max) {
     min = Math.ceil(min);
