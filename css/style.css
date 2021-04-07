@@ -14,11 +14,22 @@ h4 {
     margin-top: 25px;
 }
 
-ol {
+main {
+    background: url('https://img3.goodfon.com/wallpaper/nbig/d/3b/wood-colour-pattern-dark-dark.jpg');
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+#deck {
     margin-top: 30px;
+    padding-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    background: url('https://image.freepik.com/premium-vector/poker-table-background-green-color_47243-1068.jpg');
 }
 
 li {
+    background: white;
     width: 100px;
     padding-top: 40%;
     height: 150px;
@@ -41,6 +52,18 @@ li {
 
 #deck.pause li {
     animation-play-state: paused;
+}
+
+p {
+    padding: 40px;
+    color: white;
+
+}
+
+#punteggio {
+    padding: 25px;
+
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 @keyframes cover {
