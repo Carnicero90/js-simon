@@ -1,5 +1,16 @@
 /* COMMON
    ======================= */
+h1 {
+
+    text-transform: uppercase;
+    width: 25%;
+    margin: auto;
+    margin-top: 60px;
+    box-shadow: 0 0 0 5px hsl(354, 73%, 43%),
+        0 0 0 10px white,
+        0 0 0 15px black;
+}
+
 ol {
     margin-top: 30px;
 }
@@ -24,7 +35,7 @@ li {
     border-radius: 5px;
 }
 
-.pause {
+#deck.pause li {
     animation-play-state: paused;
 }
 
