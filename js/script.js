@@ -20,13 +20,18 @@ var output = '';
 
 userPrompt.innerHTML = `inserire n.ro ${counter+1}`
 document.getElementById('send').addEventListener('click', function() {
-        counter++;
         var answer = parseInt(document.getElementById('prompt-number').value) === randNums[counter];
+        counter++;
         rightCalls.push(answer);
         if (counter == 5) {
             alert(rightCalls);
             boh.classList.add('nada');
             document.getElementById('deck').classList.remove('pause');
+            // robe orripilanti qua, stasera miglioro
+            document.getElementById('punteggio').innerHTML += rightCalls.reduce(function(a, b) {
+                return a + b
+
+            }, 0);
         }
         userPrompt.innerHTML = `inserire n.ro ${counter+1}`
 
